@@ -1,6 +1,5 @@
 import { render } from '@czechitas/render';
 import '../global.css';
-import './index.css';
 import { Header } from '../components/Header/Header';
 import { Banner } from '../components/banner/banner';
 import { Menu } from '../components/menu/menu';
@@ -20,3 +19,12 @@ document.querySelector('#root').innerHTML = render(
     <Footer />
   </div>,
 );
+
+const btnElement = document.querySelector('.nav-btn');
+btnElement.addEventListener('click', () => {
+  const navigation = document.querySelector('.rollout-nav');
+  navigation.classList.toggle('nav-closed');
+  navigation.addEventListener('click', () => {
+    navigation.classList.add('nav-closed');
+  });
+});
